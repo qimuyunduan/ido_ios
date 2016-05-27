@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="16P-U8-FMr">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mmL-bE-XfF">
+            <objects>
+                <tabBarController id="16P-U8-FMr" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="X5j-kj-KT0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="sRm-XT-euv" kind="relationship" relationship="viewControllers" id="OZM-qK-pfb"/>
+                        <segue destination="krK-Ny-8lq" kind="relationship" relationship="viewControllers" id="Tzh-DR-739"/>
+                        <segue destination="ymk-oR-f15" kind="relationship" relationship="viewControllers" id="cLO-B6-0bg"/>
+                        <segue destination="aOJ-iC-TBp" kind="relationship" relationship="viewControllers" id="EV6-tJ-6P6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lw3-bN-8PH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42" y="-1327"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="IPz-WL-Vwm">
+            <objects>
+                <viewController id="sRm-XT-euv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OMM-dd-xc6"/>
+                        <viewControllerLayoutGuide type="bottom" id="RLS-tx-U5p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TaL-Dk-0gG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="首页" image="首页-未选" selectedImage="首页-选" id="FqB-AT-HnJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPz-IO-HxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690" y="-592"/>
+        </scene>
+        <!--消费-->
+        <scene sceneID="1oK-qB-la4">
+            <objects>
+                <viewController id="krK-Ny-8lq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Dq-20-NNh"/>
+                        <viewControllerLayoutGuide type="bottom" id="WN1-dq-B21"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lJr-ZS-HaM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="消费" image="消费-未选" selectedImage="消费选" id="t2L-QH-kRO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HtP-5e-6fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="-592"/>
+        </scene>
+        <!--商户-->
+        <scene sceneID="cQf-hs-6Te">
+            <objects>
+                <viewController id="ymk-oR-f15" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X3y-qz-4x4"/>
+                        <viewControllerLayoutGuide type="bottom" id="5bx-82-6go"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9xx-s8-ECk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="商户" image="商户未选" selectedImage="商户选" id="ZFp-F4-bMF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJr-eE-lcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="201" y="-592"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="ZpY-Dx-eCz">
+            <objects>
+                <viewController id="aOJ-iC-TBp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xbm-xs-Saj"/>
+                        <viewControllerLayoutGuide type="bottom" id="tyg-pN-8fF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GOI-ip-ocJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="我的" image="我的未选" selectedImage="我的选" id="LyU-fQ-2iA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEh-7o-8qV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="-592"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="商户未选" width="24" height="23"/>
+        <image name="商户选" width="24" height="23"/>
+        <image name="我的未选" width="24" height="23"/>
+        <image name="我的选" width="24" height="23"/>
+        <image name="消费-未选" width="24" height="23"/>
+        <image name="消费选" width="24" height="23"/>
+        <image name="首页-未选" width="24" height="23"/>
+        <image name="首页-选" width="24" height="23"/>
+    </resources>
+</document>
