@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Guide View Controller-->
@@ -17,15 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="EIl-eU-GcD">
-                                <rect key="frame" x="117" y="404" width="71" height="37"/>
-                            </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsa-Qx-E7M">
-                                <rect key="frame" x="129" y="477" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsa-Qx-E7M">
+                                <rect key="frame" x="110" y="465" width="100" height="33"/>
+                                <color key="backgroundColor" red="0.73725490196078436" green="0.76078431372549016" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="体验一下">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="EIl-eU-GcD">
+                                <rect key="frame" x="110" y="408" width="100" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EIl-eU-GcD" firstAttribute="leading" secondItem="P5d-Go-OWf" secondAttribute="leadingMargin" constant="94" id="97s-2V-gRe"/>
+                            <constraint firstItem="EIl-eU-GcD" firstAttribute="centerX" secondItem="P5d-Go-OWf" secondAttribute="centerX" id="HAT-hR-dYl"/>
+                            <constraint firstItem="EIl-eU-GcD" firstAttribute="top" secondItem="gI6-Jf-tjO" secondAttribute="bottom" constant="388" id="HlY-w1-sau"/>
+                            <constraint firstItem="Jsa-Qx-E7M" firstAttribute="centerX" secondItem="EIl-eU-GcD" secondAttribute="centerX" id="KvN-UN-ea7"/>
+                            <constraint firstItem="u5Y-oo-lNe" firstAttribute="top" secondItem="Jsa-Qx-E7M" secondAttribute="bottom" constant="70" id="OYE-Hl-xQE"/>
+                            <constraint firstItem="Jsa-Qx-E7M" firstAttribute="top" secondItem="EIl-eU-GcD" secondAttribute="bottom" constant="20" id="eNu-yI-MXA"/>
+                            <constraint firstItem="EIl-eU-GcD" firstAttribute="leading" secondItem="Jsa-Qx-E7M" secondAttribute="leading" id="xNF-Jt-XdR"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pageControl" destination="EIl-eU-GcD" id="hIg-0n-bl7"/>
@@ -34,12 +48,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0E-Ej-C9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-495" y="-1292"/>
+            <point key="canvasLocation" x="-479" y="-1327"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mmL-bE-XfF">
             <objects>
-                <tabBarController id="16P-U8-FMr" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainViewController" id="16P-U8-FMr" customClass="TabBarController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="X5j-kj-KT0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -23,6 +23,34 @@ class GuideViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let viewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateViewControllerWithIdentifier("LaunchViewController")
+        let heartImage = viewController.view.viewWithTag(0)
+        let ido = viewController.view.viewWithTag(1)
+        UIView.animateWithDuration(1, delay: 0.1, options: UIViewAnimationOptions.CurveLinear, animations: {
+            ()->Void in
+            heartImage?.layer.transform = CATransform3DScale(CATransform3DIdentity,1.2,1.2,1.2)
+            
+            
+            }, completion: {
+                (finished:Bool)->Void in
+                heartImage?.removeFromSuperview()
+                UIView.animateWithDuration(1.2, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                    ()->Void in
+                    ido?.alpha = 1.0
+                    
+                    }, completion: {
+                (finished:Bool)-> Void in
+                        ido?.removeFromSuperview()
+                
+                })
+        
+        
+        })
+        
+        
+        
+        
+        
         let frame = self.view.bounds
         
         scrollView = UIScrollView(frame: frame)
@@ -39,7 +67,7 @@ class GuideViewController:UIViewController {
         
         for index  in 0..<numOfPages {
             // 这里注意图片的命名
-            let imageView = UIImageView(image: UIImage(named: "GuideImage\(index + 1)"))
+            let imageView = UIImageView(image: UIImage(named: "launch-\(index + 1)"))
             imageView.frame = CGRect(x: frame.size.width * CGFloat(index), y: 0, width: frame.size.width, height: frame.size.height)
             scrollView.addSubview(imageView)
         }
@@ -50,8 +78,21 @@ class GuideViewController:UIViewController {
         startButton.layer.cornerRadius = 15.0
         // 隐藏开始按钮
         startButton.alpha = 0.0
+        
+        startButton.addTarget(self, action: #selector(GuideViewController.enterMainViewController), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
+    func enterMainViewController() -> Void {
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setBool(true, forKey: "isGuideViewHasShowed")
+        userDefaults.synchronize()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("mainViewController") as! UITabBarController
+        self.presentViewController(mainViewController, animated: false, completion: nil)
+        
+    }
     // 隐藏状态栏
     override func prefersStatusBarHidden() -> Bool {
         return true
