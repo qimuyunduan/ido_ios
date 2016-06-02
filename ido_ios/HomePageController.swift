@@ -7,22 +7,3 @@
 //
 
 import UIKit
-
-class HomePageController: UINavigationController,UITableViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-}
-
-extension HomePageController:UITableViewDataSource {
-
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        <#code#>
-    }
-    
-
-
-
-}

@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="-112" y="-1369"/>
         </scene>
-        <!--Root View Controller-->
+        <!--唯医-->
         <scene sceneID="qIm-h1-E7K">
             <objects>
                 <tableViewController id="d2C-8m-7D8" sceneMemberID="viewController">
@@ -111,17 +111,17 @@
                             <outlet property="delegate" destination="d2C-8m-7D8" id="oVc-fM-leF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="W8b-4H-APu"/>
+                    <navigationItem key="navigationItem" title="唯医" id="W8b-4H-APu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYr-fV-koI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-745" y="183"/>
         </scene>
-        <!--Item-->
+        <!--首页-->
         <scene sceneID="McU-f2-nIR">
             <objects>
                 <navigationController id="ihR-sc-lgl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rKw-ss-m5n"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="homePageUnselected" selectedImage="homePageSelected" id="rKw-ss-m5n"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jXN-yY-z3a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="-745" y="-592"/>
         </scene>
-        <!--Root View Controller-->
+        <!--消费-->
         <scene sceneID="cyK-Ug-AbB">
             <objects>
                 <tableViewController id="Dxt-Zo-uMU" sceneMemberID="viewController">
@@ -157,17 +157,17 @@
                             <outlet property="delegate" destination="Dxt-Zo-uMU" id="MGV-Zm-6ZZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="T5X-hk-Q5l"/>
+                    <navigationItem key="navigationItem" title="消费" id="T5X-hk-Q5l"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Yt-B7-dBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-343" y="183"/>
         </scene>
-        <!--Item-->
+        <!--消费-->
         <scene sceneID="xWY-3x-x9k">
             <objects>
                 <navigationController id="krT-DQ-XUp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Q0I-OI-kqu"/>
+                    <tabBarItem key="tabBarItem" title="消费" image="consumeUnselected" selectedImage="consumeSelected" id="Q0I-OI-kqu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DXA-Ug-nwu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -180,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="-343" y="-592"/>
         </scene>
-        <!--Root View Controller-->
+        <!--商户-->
         <scene sceneID="ZTo-mS-rNr">
             <objects>
                 <tableViewController id="UFX-of-qKl" sceneMemberID="viewController">
@@ -203,17 +203,17 @@
                             <outlet property="delegate" destination="UFX-of-qKl" id="D0F-ct-2nt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dU8-hI-jeN"/>
+                    <navigationItem key="navigationItem" title="商户" id="dU8-hI-jeN"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0D-3f-6wY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134" y="183"/>
         </scene>
-        <!--Item-->
+        <!--商户-->
         <scene sceneID="6EO-ii-M9d">
             <objects>
                 <navigationController id="o9W-0n-w4Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6yr-GB-Bd6"/>
+                    <tabBarItem key="tabBarItem" title="商户" image="shopUnselected" selectedImage="shopSelected" id="6yr-GB-Bd6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lPH-gg-ddm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -226,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="134" y="-592"/>
         </scene>
-        <!--Root View Controller-->
+        <!--我的-->
         <scene sceneID="QcO-OT-EGY">
             <objects>
                 <tableViewController id="wPv-t0-cHw" sceneMemberID="viewController">
@@ -249,17 +249,17 @@
                             <outlet property="delegate" destination="wPv-t0-cHw" id="cKq-II-QS7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="5Rt-fn-tKb"/>
+                    <navigationItem key="navigationItem" title="我的" id="5Rt-fn-tKb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AvG-Bf-znG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="546" y="183"/>
         </scene>
-        <!--Item-->
+        <!--我的-->
         <scene sceneID="oTf-tO-DTk">
             <objects>
                 <navigationController id="Wng-0V-Yua" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OUu-kx-L9L"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="myUnselected" selectedImage="mySelected" id="OUu-kx-L9L"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eoZ-cX-Pjq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -273,4 +273,14 @@
             <point key="canvasLocation" x="546" y="-592"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="consumeSelected" width="24" height="23"/>
+        <image name="consumeUnselected" width="24" height="23"/>
+        <image name="homePageSelected" width="24" height="23"/>
+        <image name="homePageUnselected" width="24" height="23"/>
+        <image name="mySelected" width="24" height="23"/>
+        <image name="myUnselected" width="24" height="23"/>
+        <image name="shopSelected" width="24" height="23"/>
+        <image name="shopUnselected" width="24" height="23"/>
+    </resources>
 </document>
