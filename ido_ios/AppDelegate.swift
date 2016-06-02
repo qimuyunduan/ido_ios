@@ -24,37 +24,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //mob sms
         SMSSDK.registerApp("1325d9704e4f7", withSecret:"13648c0e78502e514a914e2aa99f0019")
         
+        let viewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateViewControllerWithIdentifier("LaunchViewController")
+        let view = viewController.view
+        let window = UIApplication.sharedApplication().windows.last
+        view?.frame = (window?.frame)!
+        window?.addSubview(view)
         
-        // 得到当前应用的版本号
-        let infoDictionary = NSBundle.mainBundle().infoDictionary
-        let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
-        
-        // 取出之前保存的版本号
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let appVersion = userDefaults.stringForKey("appVersion")
-        print(appVersion)
-        print("currenr version is "+currentAppVersion)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        // 如果 appVersion 为 nil 说明是第一次启动；如果 appVersion 不等于 currentAppVersion 说明是更新了
-        if appVersion == nil || appVersion == currentAppVersion {
-            print("version  equal...")
-            // 保存最新的版本号
-            userDefaults.setValue(currentAppVersion, forKey: "appVersion")
+        UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
+            ()->Void in
+            view.alpha=0.0
+            view.layer.transform = CATransform3DScale(CATransform3DIdentity, 2.0, 2.0, 1.0)
             
-            let guideViewController = storyboard.instantiateViewControllerWithIdentifier("GuideViewController") as! GuideViewController
-            self.window?.rootViewController = guideViewController
-        }else {
-            
-            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("mainViewController") as! UITabBarController
-            self.window?.rootViewController = mainViewController
-            
-            
-        }
-        
-        
-        
-        
+            }, completion: {
+                (finished:Bool)->Void in
+                view.removeFromSuperview()
+                
+                // 得到当前应用的版本号
+                let infoDictionary = NSBundle.mainBundle().infoDictionary
+                let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
+                
+                // 取出之前保存的版本号
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                let appVersion = userDefaults.stringForKey("appVersion")
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                // 如果 appVersion 为 nil 说明是第一次启动；如果 appVersion 不等于 currentAppVersion 说明是更新了
+                if appVersion == nil || appVersion != currentAppVersion {
+                    
+                    // 保存最新的版本号
+                    userDefaults.setValue(currentAppVersion, forKey: "appVersion")
+                    
+                    let guideViewController = storyboard.instantiateViewControllerWithIdentifier("GuideViewController") as! GuideViewController
+                    self.window?.rootViewController = guideViewController
+                }
+                else {
+                    
+                    let mainViewController = storyboard.instantiateViewControllerWithIdentifier("mainViewController") as! UITabBarController
+                    self.window?.rootViewController = mainViewController
+                    
+                }
+                
+        })
+
         return true
     }
     

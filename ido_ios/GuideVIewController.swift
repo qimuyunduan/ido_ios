@@ -21,35 +21,8 @@ class GuideViewController:UIViewController {
     private let numOfPages = 3
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
-        let viewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateViewControllerWithIdentifier("LaunchViewController")
-        let heartImage = viewController.view.viewWithTag(0)
-        let ido = viewController.view.viewWithTag(1)
-        UIView.animateWithDuration(1, delay: 0.1, options: UIViewAnimationOptions.CurveLinear, animations: {
-            ()->Void in
-            heartImage?.layer.transform = CATransform3DScale(CATransform3DIdentity,1.2,1.2,1.2)
-            
-            
-            }, completion: {
-                (finished:Bool)->Void in
-                heartImage?.removeFromSuperview()
-                UIView.animateWithDuration(1.2, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                    ()->Void in
-                    ido?.alpha = 1.0
-                    
-                    }, completion: {
-                (finished:Bool)-> Void in
-                        ido?.removeFromSuperview()
-                
-                })
-        
-        
-        })
-        
-        
-        
-        
         
         let frame = self.view.bounds
         
@@ -83,11 +56,7 @@ class GuideViewController:UIViewController {
     }
     
     func enterMainViewController() -> Void {
-        
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setBool(true, forKey: "isGuideViewHasShowed")
-        userDefaults.synchronize()
-        
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("mainViewController") as! UITabBarController
         self.presentViewController(mainViewController, animated: false, completion: nil)
@@ -102,7 +71,9 @@ class GuideViewController:UIViewController {
 
 // MARK: - UIScrollViewDelegate
 extension GuideViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        
         let offset = scrollView.contentOffset
         // 随着滑动改变pageControl的状态
         pageControl.currentPage = Int(offset.x / view.bounds.width)
