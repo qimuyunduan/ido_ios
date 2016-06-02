@@ -38,7 +38,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsa-Qx-E7M">
                                 <rect key="frame" x="110" y="465" width="100" height="33"/>
-                                <color key="backgroundColor" red="0.73725490196078436" green="0.76078431372549016" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="体验一下">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,7 +120,7 @@
         <!--首页-->
         <scene sceneID="McU-f2-nIR">
             <objects>
-                <navigationController id="ihR-sc-lgl" sceneMemberID="viewController">
+                <navigationController id="ihR-sc-lgl" customClass="HomePageController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="homePageUnselected" selectedImage="homePageSelected" id="rKw-ss-m5n"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jXN-yY-z3a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -166,7 +166,7 @@
         <!--消费-->
         <scene sceneID="xWY-3x-x9k">
             <objects>
-                <navigationController id="krT-DQ-XUp" sceneMemberID="viewController">
+                <navigationController id="krT-DQ-XUp" customClass="ConsumeController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="消费" image="consumeUnselected" selectedImage="consumeSelected" id="Q0I-OI-kqu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DXA-Ug-nwu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -212,7 +212,7 @@
         <!--商户-->
         <scene sceneID="6EO-ii-M9d">
             <objects>
-                <navigationController id="o9W-0n-w4Z" sceneMemberID="viewController">
+                <navigationController id="o9W-0n-w4Z" customClass="RetailerController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="商户" image="shopUnselected" selectedImage="shopSelected" id="6yr-GB-Bd6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lPH-gg-ddm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -258,7 +258,7 @@
         <!--我的-->
         <scene sceneID="oTf-tO-DTk">
             <objects>
-                <navigationController id="Wng-0V-Yua" sceneMemberID="viewController">
+                <navigationController id="Wng-0V-Yua" customClass="MyController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="myUnselected" selectedImage="mySelected" id="OUu-kx-L9L"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eoZ-cX-Pjq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

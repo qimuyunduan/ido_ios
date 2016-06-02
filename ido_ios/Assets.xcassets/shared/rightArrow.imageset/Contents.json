@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "取消验证码@2x.png",
+      "filename" : "向右小箭头@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "取消验证码@3x.png"
+      "filename" : "向右小箭头@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
