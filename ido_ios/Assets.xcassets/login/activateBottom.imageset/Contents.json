@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "立即激活-底@2x.png",
+      "filename" : "activateBottom@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "立即激活-底@3x.png"
+      "filename" : "activateBottom@3x.png"
     }
   ],
   "info" : {

@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "当前城市-方块底@2x.png",
+      "filename" : "currentCity@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "当前城市-方块底@3x.png"
+      "filename" : "currentCity@3x.png"
     }
   ],
   "info" : {

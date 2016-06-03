@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "分割线-短@2x.png",
+      "filename" : "shortSeparationLine@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "分割线-短@3x.png"
+      "filename" : "shortSeparationLine@3x.png"
     }
   ],
   "info" : {

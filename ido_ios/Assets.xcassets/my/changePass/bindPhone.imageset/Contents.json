@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "绑定手机底@2x.png",
+      "filename" : "bindPhone@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "绑定手机底@3x.png"
+      "filename" : "bindPhone@3x.png"
     }
   ],
   "info" : {

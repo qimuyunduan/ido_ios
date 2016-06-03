@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "城市-选择-底@2x.png",
+      "filename" : "citySelected@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "城市-选择-底@3x.png"
+      "filename" : "citySelected@3x.png"
     }
   ],
   "info" : {

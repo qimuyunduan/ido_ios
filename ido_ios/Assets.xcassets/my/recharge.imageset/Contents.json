@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "充值@2x.png",
+      "filename" : "recharge@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "充值@3x.png"
+      "filename" : "recharge@3x.png"
     }
   ],
   "info" : {

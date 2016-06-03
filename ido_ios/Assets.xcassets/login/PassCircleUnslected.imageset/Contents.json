@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "记住密码勾选圈@2x.png",
+      "filename" : "PassCircleUnslected@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "记住密码勾选圈@3x.png"
+      "filename" : "PassCircleUnslected@3x.png"
     }
   ],
   "info" : {

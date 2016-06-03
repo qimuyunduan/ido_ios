@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "提交@2x.png",
+      "filename" : "submitEnabled@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "提交@3x.png"
+      "filename" : "submitEnabled@3x.png"
     }
   ],
   "info" : {

@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "价格底@2x.png",
+      "filename" : "priceBottom@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "价格底@3x.png"
+      "filename" : "priceBottom@3x.png"
     }
   ],
   "info" : {

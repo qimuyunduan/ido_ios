@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "banner切换原点-红@2x.png",
+      "filename" : "redSwitchPoint@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "banner切换原点-红@3x.png"
+      "filename" : "redSwitchPoint@3x.png"
     }
   ],
   "info" : {

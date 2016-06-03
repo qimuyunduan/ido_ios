@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "头像底@2x.png",
+      "filename" : "avatarBg@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "头像底@3x.png"
+      "filename" : "avatarBg@3x.png"
     }
   ],
   "info" : {

@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "小三角@2x.png",
+      "filename" : "triangleUnselected@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "小三角@3x.png"
+      "filename" : "triangleUnselected@3x.png"
     }
   ],
   "info" : {

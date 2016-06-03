@@ -10,11 +10,5 @@ import UIKit
 
 class Utility: NSObject {
     
-    
-    static func showLaunchView(){
-    
-        
-    
-    
-    }
+
 }

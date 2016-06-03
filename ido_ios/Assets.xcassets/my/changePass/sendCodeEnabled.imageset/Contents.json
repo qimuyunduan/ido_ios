@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "发送验证码底@2x.png",
+      "filename" : "sendCodeEnabled@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "发送验证码底@3x.png"
+      "filename" : "sendCodeEnabled@3x.png"
     }
   ],
   "info" : {

@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "商户未选@2x.png",
+      "filename" : "shopUnselected@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "商户未选@3x.png"
+      "filename" : "shopUnselected@3x.png"
     }
   ],
   "info" : {

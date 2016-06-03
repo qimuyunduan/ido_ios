@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "账号密码底部@2x.png",
+      "filename" : "accountBottom@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "账号密码底部@3x.png"
+      "filename" : "accountBottom@3x.png"
     }
   ],
   "info" : {

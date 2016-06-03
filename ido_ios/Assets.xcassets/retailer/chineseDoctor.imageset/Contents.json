@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "中医@2x.png",
+      "filename" : "chineseDoctor@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "中医@3x.png"
+      "filename" : "chineseDoctor@3x.png"
     }
   ],
   "info" : {

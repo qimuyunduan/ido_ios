@@ -91,7 +91,7 @@
         <!--唯医-->
         <scene sceneID="qIm-h1-E7K">
             <objects>
-                <tableViewController id="d2C-8m-7D8" sceneMemberID="viewController">
+                <tableViewController id="d2C-8m-7D8" customClass="HPTableViewController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3rd-T2-ia6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,7 +137,7 @@
         <!--消费-->
         <scene sceneID="cyK-Ug-AbB">
             <objects>
-                <tableViewController id="Dxt-Zo-uMU" sceneMemberID="viewController">
+                <tableViewController id="Dxt-Zo-uMU" customClass="ConsumeTableViewController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="61d-uo-dJT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,7 +183,7 @@
         <!--商户-->
         <scene sceneID="ZTo-mS-rNr">
             <objects>
-                <tableViewController id="UFX-of-qKl" sceneMemberID="viewController">
+                <tableViewController id="UFX-of-qKl" customClass="RetailerTableViewController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="y3o-Lg-1P9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,7 +229,7 @@
         <!--我的-->
         <scene sceneID="QcO-OT-EGY">
             <objects>
-                <tableViewController id="wPv-t0-cHw" sceneMemberID="viewController">
+                <tableViewController id="wPv-t0-cHw" customClass="MyTableViewController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ubM-OJ-iPE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

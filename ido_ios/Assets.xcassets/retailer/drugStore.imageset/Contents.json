@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "药房@2x.png",
+      "filename" : "drugStore@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "药房@3x.png"
+      "filename" : "drugStore@3x.png"
     }
   ],
   "info" : {

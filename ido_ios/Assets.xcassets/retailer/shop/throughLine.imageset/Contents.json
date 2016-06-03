@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "分割线——通栏@2x.png",
+      "filename" : "throughLine@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "分割线——通栏@3x.png"
+      "filename" : "throughLine@3x.png"
     }
   ],
   "info" : {

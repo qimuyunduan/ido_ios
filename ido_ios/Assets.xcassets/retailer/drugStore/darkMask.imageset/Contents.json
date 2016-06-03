@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "黑色遮罩@2x.png",
+      "filename" : "darkMask@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "黑色遮罩@3x.png"
+      "filename" : "darkMask@3x.png"
     }
   ],
   "info" : {

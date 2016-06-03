@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "激活成功-按钮边框@2x.png",
+      "filename" : "activateSuccessBorder@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "激活成功-按钮边框@3x.png"
+      "filename" : "activateSuccessBorder@3x.png"
     }
   ],
   "info" : {

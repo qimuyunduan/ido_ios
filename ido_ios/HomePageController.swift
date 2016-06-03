@@ -10,32 +10,15 @@ import UIKit
 
 class HomePageController: UINavigationController {
     
-
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.navigationBar.barTintColor =  UIColor(red: 55/255, green: 186/255, blue: 89/255, alpha: 1)
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
     }
     
 }
 
-extension HomePageController:UITableViewDelegate {
-
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
-    }
 
 
-}
-
-extension HomePageController:UITableViewDataSource {
-
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        <#code#>
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        <#code#>
-    }
-
-}

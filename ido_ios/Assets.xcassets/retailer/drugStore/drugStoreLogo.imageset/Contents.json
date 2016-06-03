@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "药店logo大小@2x.png",
+      "filename" : "drugStoreLogo@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "药店logo大小@3x.png"
+      "filename" : "drugStoreLogo@3x.png"
     }
   ],
   "info" : {

@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "医院@2x.png",
+      "filename" : "hospital@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "医院@3x.png"
+      "filename" : "hospital@3x.png"
     }
   ],
   "info" : {

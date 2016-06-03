@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "附近和智能排序底@2x.png",
+      "filename" : "sort@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "附近和智能排序底@3x.png"
+      "filename" : "sort@3x.png"
     }
   ],
   "info" : {

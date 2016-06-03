@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "下一步-底@2x.png",
+      "filename" : "nextStepBottom@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "下一步-底@3x.png"
+      "filename" : "nextStepBottom@3x.png"
     }
   ],
   "info" : {
