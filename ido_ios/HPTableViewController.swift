@@ -11,7 +11,7 @@ import UIKit
 
 class HPTableViewController: UITableViewController {
     
-    private let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 100, height: 37))
+    private let pageControl = UIPageControl()
     private let scrollView  = UIScrollView()
     let screen = UIScreen.mainScreen()
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 200))
@@ -33,12 +33,14 @@ class HPTableViewController: UITableViewController {
             scrollView.addSubview(imageView)
         }
         headerView.addSubview(scrollView)
-        let constraintOne = NSLayoutConstraint(item: headerView, attribute: .CenterX, relatedBy: .Equal, toItem: pageControl, attribute: .CenterX, multiplier: 1.0, constant: 0)
-        let constraintTwo = NSLayoutConstraint(item: headerView, attribute: .Bottom, relatedBy: .Equal, toItem: pageControl, attribute: .Bottom, multiplier: 1.0, constant: -30)
+       
+        let constraintOne = NSLayoutConstraint(item: pageControl, attribute: .CenterX, relatedBy: .Equal, toItem: headerView, attribute: .CenterX, multiplier: 1.0, constant: 0)
+        let constraintTwo = NSLayoutConstraint(item: pageControl, attribute: .CenterY, relatedBy: .Equal, toItem: headerView, attribute: .CenterY, multiplier: 1.0, constant: 0)
         headerView.addSubview(pageControl)
+        headerView.bringSubviewToFront(pageControl)
         headerView.addConstraints([constraintOne,constraintTwo])
         self.tableView.tableHeaderView = headerView
-        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
     }
     
@@ -54,6 +56,36 @@ class HPTableViewController: UITableViewController {
         }
 
     }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0 {
+            let sectionView = UIView()
+            let imageView  = UIImageView(image: UIImage(named: "new"))
+            let label = UILabel()
+            label.text = "最新活动"
+            label.font = UIFont.systemFontOfSize(16)
+            label.textColor = UIColor.lightGrayColor()
+            sectionView.addSubview(imageView)
+            sectionView.addSubview(label)
+            sectionView.bringSubviewToFront(label)
+            let constraint1 = NSLayoutConstraint(item: label, attribute: .Left, relatedBy: .Equal, toItem: imageView, attribute: .Right, multiplier: 1.0, constant: 32)
+            let constraint2 = NSLayoutConstraint(item: label, attribute: .Bottom, relatedBy: .Equal, toItem: imageView, attribute: .Bottom, multiplier: 1.0, constant: 0)
+            sectionView.addConstraints([constraint1,constraint2])
+            return sectionView
+        
+            
+        }
+        return nil
+    }
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//    }
     
 }
 
