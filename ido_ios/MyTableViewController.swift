@@ -15,13 +15,11 @@ class MyTableViewController: UITableViewController {
     let sectionTwoValues = [["rechargeRecord","充值报销"],["modifyPwd","修改密码"]]
     let sectionThreeValues = [["feedback","意见反馈"],["logout","退出"]]
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor.lightGrayColor()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -32,14 +30,20 @@ class MyTableViewController: UITableViewController {
         
         let tableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         if indexPath.section == 0 {
+            
             tableViewCell.accessoryType = .None
-            tableViewCell.imageView = UIImageView(image: UIImage(named: sectionOneValues[indexPath.row][0]))
+            tableViewCell.imageView?.image = UIImage(named: sectionOneValues[indexPath.row][0])
             tableViewCell.textLabel?.text = sectionOneValues[indexPath.row][1]
+        
             return tableViewCell
+            
         }else {
         
-            
-        
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
+            cell.accessoryType = .DisclosureIndicator
+            cell.imageView?.image = UIImage(named: sectionTwoValues[indexPath.row][0])
+            cell.textLabel?.text = sectionTwoValues[indexPath.row][1]
+            return cell
         
         }
         
