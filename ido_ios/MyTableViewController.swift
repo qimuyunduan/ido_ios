@@ -18,7 +18,8 @@ class MyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor.lightGrayColor()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
     }
     
@@ -28,23 +29,23 @@ class MyTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let tableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let tableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as! MyTableViewCell
         if indexPath.section == 0 {
             
             tableViewCell.accessoryType = .None
-            tableViewCell.imageView?.image = UIImage(named: sectionOneValues[indexPath.row][0])
-            tableViewCell.textLabel?.text = sectionOneValues[indexPath.row][1]
-        
+            tableViewCell.imageIcon.image = UIImage(named: sectionOneValues[indexPath.row][0])
+            tableViewCell.leftLabel.text = sectionOneValues[indexPath.row][1]
+            
             return tableViewCell
             
         }else {
-        
-            let cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
+            
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
             cell.accessoryType = .DisclosureIndicator
             cell.imageView?.image = UIImage(named: sectionTwoValues[indexPath.row][0])
             cell.textLabel?.text = sectionTwoValues[indexPath.row][1]
             return cell
-        
+            
         }
         
         
@@ -64,19 +65,29 @@ class MyTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
-    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 3
+        }
+        else if section == 1 {
+            return 2
+        }else {
+            
+            return 2
+        }
+    }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
             return 40
         }else if section == 2 {
-        
+            
             return 20
-        
+            
         }
         else{
             return 0
         }
     }
-
+    
     
 }

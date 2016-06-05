@@ -7,7 +7,14 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyTableViewCell"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyTableViewCell">
+            <connections>
+                <outlet property="imageIcon" destination="8DT-5n-1AY" id="bpP-4k-km6"/>
+                <outlet property="imageView" destination="8DT-5n-1AY" id="KMX-ms-EZK"/>
+                <outlet property="leftLabel" destination="fQg-Uj-MWj" id="Wkx-c1-qtG"/>
+                <outlet property="rightLabel" destination="9cj-83-bYn" id="9n9-nm-LJy"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="40" id="d1q-nx-HdG" customClass="MyTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="460" height="47"/>
