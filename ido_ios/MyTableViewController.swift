@@ -10,15 +10,22 @@ import UIKit
 
 class MyTableViewController: UITableViewController {
     
+
     
-    let sectionOneValues = [["accountName","姓名"],["insureCompany","投保机构"],["moneyLeft","账户余额"]]
-    let sectionTwoValues = [["rechargeRecord","充值报销"],["modifyPwd","修改密码"]]
-    let sectionThreeValues = [["feedback","意见反馈"],["logout","退出"]]
+    let sectionValues = [
+        ["accountName","姓名","insureUnit","投保机构","moneyLeft","账户余额"],
+        ["rechargeRecord","充值报销","modifyPwd","修改密码"],
+        ["feedback","意见反馈","logout","退出"]]
     
+    let cellID = "cell"
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "MyTableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier:cellID)
         self.tableView.backgroundColor = UIColor.lightGrayColor()
-        self.tableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
     }
@@ -29,12 +36,12 @@ class MyTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let tableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as! MyTableViewCell
+        
         if indexPath.section == 0 {
-            
+            let tableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellID)! as! MyTableViewCell
             tableViewCell.accessoryType = .None
-            tableViewCell.imageIcon.image = UIImage(named: sectionOneValues[indexPath.row][0])
-            tableViewCell.leftLabel.text = sectionOneValues[indexPath.row][1]
+            tableViewCell.imageIcon.image = UIImage(named: sectionValues[0][indexPath.row * 2])
+            tableViewCell.leftLabel.text = sectionValues[0][indexPath.row * 2 + 1]
             
             return tableViewCell
             
@@ -42,8 +49,8 @@ class MyTableViewController: UITableViewController {
             
             let cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
             cell.accessoryType = .DisclosureIndicator
-            cell.imageView?.image = UIImage(named: sectionTwoValues[indexPath.row][0])
-            cell.textLabel?.text = sectionTwoValues[indexPath.row][1]
+            cell.imageView?.image = UIImage(named: sectionValues[indexPath.section][indexPath.row * 2])
+            cell.textLabel?.text = sectionValues[indexPath.section][indexPath.row * 2 + 1]
             return cell
             
         }
@@ -66,15 +73,8 @@ class MyTableViewController: UITableViewController {
         
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 3
-        }
-        else if section == 1 {
-            return 2
-        }else {
-            
-            return 2
-        }
+        return sectionValues.count
+        
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
