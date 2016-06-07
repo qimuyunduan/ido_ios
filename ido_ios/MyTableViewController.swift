@@ -12,6 +12,9 @@ class MyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //修改导航栏返回按钮
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+       
         }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
