@@ -14,7 +14,7 @@ class HPTableViewController: UITableViewController {
     private let pageControl = UIPageControl()
     private let scrollView  = UIScrollView()
     let screen = UIScreen.mainScreen()
-    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 200))
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 100))
     private let number  = 3
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +26,10 @@ class HPTableViewController: UITableViewController {
         scrollView.contentOffset = CGPointZero
         scrollView.bounces = false
         scrollView.delegate = self
-        scrollView.contentSize = CGSize(width: screen.bounds.width * CGFloat(number), height: 200.0)
+        scrollView.contentSize = CGSize(width: screen.bounds.width * CGFloat(number), height: 100.0)
         for index in 0 ..< number {
             let imageView = UIImageView(image: UIImage(named: "GuideImage\(index+1)"))
-            imageView.frame = CGRect(x: screen.bounds.width * CGFloat(index), y: 0, width: screen.bounds.width, height: 200)
+            imageView.frame = CGRect(x: screen.bounds.width * CGFloat(index), y: 0, width: screen.bounds.width, height: 100)
             scrollView.addSubview(imageView)
         }
         headerView.addSubview(scrollView)
