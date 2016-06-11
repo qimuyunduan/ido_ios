@@ -1420,7 +1420,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GQ7-DU-5ju" kind="modal" id="cOP-gi-Qbd"/>
+                                    <segue destination="GQ7-DU-5ju" kind="modal" id="vtf-gJ-YET"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1521,7 +1521,7 @@
         <!--意见反馈-->
         <scene sceneID="Scn-2l-Iiz">
             <objects>
-                <viewController id="iju-s6-Jfn" customClass="FeedbackController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="iju-s6-Jfn" customClass="FeedbackController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OrU-j9-Drb"/>
                         <viewControllerLayoutGuide type="bottom" id="o47-gO-cIs"/>
