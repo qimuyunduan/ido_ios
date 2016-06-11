@@ -16,6 +16,8 @@ class SettingController:UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
