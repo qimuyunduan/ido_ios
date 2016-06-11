@@ -20,5 +20,9 @@ class RegisterController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sendMsgButton.layer.borderWidth = 1.0
+        sendMsgButton.layer.borderColor = UIColor(red: 0.46, green: 0.66, blue: 1, alpha: 1).CGColor
+        sendMsgButton.layer.cornerRadius = 5.0
+        
     }
 }

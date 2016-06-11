@@ -18,5 +18,7 @@ class ChangePwdController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
 }
