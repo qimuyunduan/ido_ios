@@ -9,6 +9,16 @@
 import UIKit
 
 class SendMsgController: UIViewController {
+    
+    @IBOutlet weak var phoneNumber: UITextField!
+    
+    @IBOutlet weak var sendMsgButton: UIButton!
+    
+    @IBOutlet weak var verifyCode: UITextField!
+    
+    @IBOutlet weak var nextStepButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

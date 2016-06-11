@@ -9,6 +9,13 @@
 import UIKit
 
 class ChangePwdController: UIViewController {
+    
+    @IBOutlet weak var pwd: UITextField!
+    
+    @IBOutlet weak var confirmPwd: UITextField!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

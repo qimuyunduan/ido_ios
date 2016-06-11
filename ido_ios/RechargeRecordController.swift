@@ -8,7 +8,10 @@
 
 import UIKit
 class RechargeRecordController: UITableViewController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 }

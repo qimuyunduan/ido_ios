@@ -10,10 +10,16 @@ import UIKit
 
 class SettingController:UITableViewController {
 
+    @IBOutlet weak var rememberUsername: UISwitch!
+    
+    @IBOutlet weak var autoLogin: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
 
 }
 

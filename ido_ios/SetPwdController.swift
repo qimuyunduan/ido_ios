@@ -8,6 +8,14 @@
 
 import UIKit
 class SetPwdController: UIViewController {
+    
+    @IBOutlet weak var setPwd: UITextField!
+    
+    @IBOutlet weak var confirmPwd: UITextField!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
