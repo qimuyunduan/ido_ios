@@ -9,4 +9,19 @@
 import UIKit
 class RetailerTableViewCell: UITableViewCell {
     
+
+    @IBOutlet weak var price: UILabel!
+    
+    @IBOutlet weak var bargainPrice: UILabel!
+    
+    @IBOutlet weak var introInfo: UITextView!
+    
+    @IBOutlet weak var salesCount: UILabel!
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }

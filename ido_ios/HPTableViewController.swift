@@ -58,34 +58,25 @@ class HPTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if section == 0 {
-            let sectionView = UIView()
-            let imageView  = UIImageView(image: UIImage(named: "new"))
-            let label = UILabel()
-            label.text = "最新活动"
-            label.font = UIFont.systemFontOfSize(16)
-            label.textColor = UIColor.lightGrayColor()
-            sectionView.addSubview(imageView)
-            sectionView.addSubview(label)
-            sectionView.bringSubviewToFront(label)
-            let constraint1 = NSLayoutConstraint(item: label, attribute: .Left, relatedBy: .Equal, toItem: imageView, attribute: .Right, multiplier: 1.0, constant: 32)
-            let constraint2 = NSLayoutConstraint(item: label, attribute: .Bottom, relatedBy: .Equal, toItem: imageView, attribute: .Bottom, multiplier: 1.0, constant: 0)
-            sectionView.addConstraints([constraint1,constraint2])
-            return sectionView
-        
-            
-        }
         return nil
-    }
+           }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      
+            let headerCell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
+            headerCell.textLabel?.text = "最新活动"
+            headerCell.textLabel?.font = UIFont.boldSystemFontOfSize(18)
+            headerCell.textLabel?.textColor = UIColor.redColor()
+            headerCell.textLabel?.textAlignment = NSTextAlignment.Left
+            headerCell.imageView?.image = UIImage(named: "new")
+            headerCell.imageView?.frame = CGRectMake(0, 0, 20, 20)
+            return headerCell
+        
+    }
     
 }
 

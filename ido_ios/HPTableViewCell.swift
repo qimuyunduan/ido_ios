@@ -10,4 +10,17 @@ import UIKit
 
 class HPTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var HPCellImage: UIImageView!
+    
+    @IBOutlet weak var HPCellLabel: UILabel!
+    
+    @IBOutlet weak var HPCellTextview: UITextView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+    }
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
 }

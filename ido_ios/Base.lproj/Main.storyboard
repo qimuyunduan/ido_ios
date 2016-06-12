@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homePageCell" id="n6q-CK-7bj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homePageCell" id="n6q-CK-7bj" customClass="HPTableViewCell" customModule="ido_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n6q-CK-7bj" id="w1O-Xd-88r">
@@ -123,6 +123,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="HPCellImage" destination="TMg-pp-gbI" id="UTm-3g-OVz"/>
+                                    <outlet property="HPCellLabel" destination="3td-dd-soh" id="nxq-dy-XXz"/>
+                                    <outlet property="HPCellTextview" destination="jIJ-7C-5Zh" id="xe5-YL-pnx"/>
                                     <segue destination="bpd-Xh-IF7" kind="push" id="zYN-3f-kTp"/>
                                 </connections>
                             </tableViewCell>
@@ -481,7 +484,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="consumeCell" id="Qt0-Bc-dDa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="consumeCell" id="Qt0-Bc-dDa" customClass="ConsTableViewCell" customModule="ido_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qt0-Bc-dDa" id="HBs-He-bo1">
@@ -540,6 +543,13 @@
                                         <constraint firstItem="ZP8-WO-ePQ" firstAttribute="leading" secondItem="HBs-He-bo1" secondAttribute="leading" constant="20" id="sOJ-iF-SYb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="orderImage" destination="ZP8-WO-ePQ" id="J5T-Yg-u8j"/>
+                                    <outlet property="orderMoney" destination="uDl-yX-G3g" id="EYg-j2-qh1"/>
+                                    <outlet property="orderState" destination="gXT-Eg-8D8" id="eFB-ZD-wbq"/>
+                                    <outlet property="orderTime" destination="5iw-JF-6yN" id="uCs-Ma-tJq"/>
+                                    <outlet property="orderTitle" destination="P2r-QK-Vxd" id="slz-CT-4Zr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -579,7 +589,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="retailerCell" id="2gA-qG-tBX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="retailerCell" id="2gA-qG-tBX" customClass="RetailerTableViewCell" customModule="ido_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2gA-qG-tBX" id="cHE-Dr-HF3">
@@ -646,6 +656,13 @@
                                         <constraint firstItem="lEw-3E-gAW" firstAttribute="leading" secondItem="cHE-Dr-HF3" secondAttribute="leading" constant="20" id="IiT-dp-CZb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bargainPrice" destination="H9o-Wz-jyR" id="ayo-cb-SHS"/>
+                                    <outlet property="introInfo" destination="wP0-mf-QgB" id="zBb-G0-9IT"/>
+                                    <outlet property="price" destination="bIb-9s-apM" id="TWp-Oi-mzS"/>
+                                    <outlet property="retailerName" destination="bIb-9s-apM" id="WNx-M9-tqZ"/>
+                                    <outlet property="salesCount" destination="6tp-ns-qF2" id="cJC-7p-Zvs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
