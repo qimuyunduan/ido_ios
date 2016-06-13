@@ -6,7 +6,7 @@
 //  Copyright © 2016年 qimuyunduan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 

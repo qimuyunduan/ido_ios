@@ -6,12 +6,34 @@
 //  Copyright © 2016年 qimuyunduan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 
 class Setting: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
+//    var app:AppDelegate?
+//    var context:NSManagedObjectContext?
+//    
+//    
+//    func init() -> Void {
+//        app = UIApplication.sharedApplication().delegate as? AppDelegate
+//        context = app.managedObjectContext
+//    }
+    
+    
+    class func getValue(fieldName:String) {
+    
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        
+        
+    
+    }
+    class func changeValue(fieldName:String,newValue:Bool){
+    
+        
+    
+    }
 
 }
