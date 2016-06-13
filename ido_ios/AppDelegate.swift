@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         view?.frame = (window?.frame)!
         window?.addSubview(view)
         
+       
+        
+        
         UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
             ()->Void in
             view.alpha=0.0
