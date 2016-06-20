@@ -11,5 +11,5 @@
 
 #import <UMMobClick/MobClick.h>
 #import <SMS_SDK/SMSSDK.h>
-
+#import <MJRefresh/MJRefresh.h>
 #endif /* ido_ios_Bridging_Header_h */
