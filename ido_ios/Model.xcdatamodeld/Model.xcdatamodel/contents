@@ -4,15 +4,7 @@
         <attribute name="autoLogin" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="rememberUsername" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
-    <entity name="UserOrder" representedClassName=".UserOrder" syncable="YES">
-        <attribute name="money" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="orderImage" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
-        <element name="UserOrder" positionX="-54" positionY="-9" width="128" height="120"/>
         <element name="Setting" positionX="-36" positionY="45" width="128" height="75"/>
     </elements>
 </model>
