@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Cartography
 
 class HPTableViewController: UITableViewController {
     
@@ -27,18 +27,24 @@ class HPTableViewController: UITableViewController {
         scrollView.bounces = false
         scrollView.delegate = self
         scrollView.contentSize = CGSize(width: screen.bounds.width * CGFloat(number), height: 100.0)
+        pageControl.numberOfPages = number
+        pageControl.currentPage = 0
         for index in 0 ..< number {
             let imageView = UIImageView(image: UIImage(named: "GuideImage\(index+1)"))
             imageView.frame = CGRect(x: screen.bounds.width * CGFloat(index), y: 0, width: screen.bounds.width, height: 100)
             scrollView.addSubview(imageView)
         }
         headerView.addSubview(scrollView)
-       
-        let constraintOne = NSLayoutConstraint(item: pageControl, attribute: .CenterX, relatedBy: .Equal, toItem: headerView, attribute: .CenterX, multiplier: 1.0, constant: 0)
-        let constraintTwo = NSLayoutConstraint(item: pageControl, attribute: .CenterY, relatedBy: .Equal, toItem: headerView, attribute: .CenterY, multiplier: 1.0, constant: 0)
         headerView.addSubview(pageControl)
-        headerView.bringSubviewToFront(pageControl)
-        headerView.addConstraints([constraintOne,constraintTwo])
+        
+        constrain(scrollView,pageControl){
+            
+            scrollView,pageControl in
+            pageControl.left == scrollView.left + 20
+            pageControl.bottom == scrollView.bottom - 20
+            
+        }
+        
         self.tableView.tableHeaderView = headerView
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
