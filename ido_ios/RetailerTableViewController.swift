@@ -32,30 +32,29 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
         
     }
 
+    
     func setHeader(tableView:UITableView) -> Void {
         
     let headerView            = UIView(frame: CGRectMake(0,0,screenSize.width,280))
     let collectionView        = initCollectionView()
-    let gapView               = UIView(frame: CGRectMake(0,0,screenSize.width,20))
+    let gapView               = UIView(frame: CGRectMake(0,200,screenSize.width,20))
     let titleView             = initTitleView()
-        headerView.addSubview(headerView)
+        headerView.addSubview(titleView)
         headerView.addSubview(gapView)
         headerView.addSubview(collectionView)
         gapView.backgroundColor   = UIColor.lightGrayColor()
         headerView.backgroundColor = UIColor.whiteColor()
-        constrain(collectionView,gapView,titleView) {
-
-            collectionView,gapView,titleView in
-                gapView.top   == collectionView.bottom
-                titleView.top == gapView.bottom
-
-
-        }
+        collectionView.backgroundColor = UIColor.whiteColor()
+        
         tableView.tableHeaderView = headerView
 
     }
     func initCollectionView() ->UICollectionView {
-        collectionView        = UICollectionView(frame: CGRectMake(0, 0, screenSize.width, 220))
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: screenSize.width/4, height: screenSize.width/4)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        collectionView        = UICollectionView(frame: CGRectMake(0, 0, screenSize.width, 200),collectionViewLayout:layout)
         collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Ccell")
         collectionView!.dataSource = self
         collectionView!.delegate   = self
@@ -63,7 +62,7 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
 
     }
     func initTitleView() -> UIView {
-    let titleView             = UIView(frame: CGRectMake(0,0,screenSize.width,40))
+    let titleView             = UIView(frame: CGRectMake(0,220,screenSize.width,40))
     let imageView             = UIImageView(image: UIImage(named: "new"))
     let label                 = UILabel()
     label.text                = "最新活动"
@@ -71,6 +70,7 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
     label.textAlignment       = NSTextAlignment.Left
         titleView.addSubview(imageView)
         titleView.addSubview(label)
+        titleView.backgroundColor = UIColor.whiteColor()
         constrain(titleView,imageView,label) {
 
             titleView,imageView,label in
@@ -90,16 +90,27 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let Ccell = (self.collectionView?.dequeueReusableCellWithReuseIdentifier("Ccell", forIndexPath: indexPath))! as UICollectionViewCell? {
+          
             let info = collectionCells[indexPath.item]
             let image = UIImageView(image: UIImage(named: info["pic"]!))
             image.frame = Ccell.bounds
             image.contentMode = .ScaleAspectFit
-            let label = UILabel(frame:CGRectMake(0,5,Ccell.bounds.size.width,20))
+            let label = UILabel()
             label.text = info["name"]
             label.font = UIFont.systemFontOfSize(16)
             label.textAlignment = .Center
             Ccell.addSubview(image)
             Ccell.addSubview(label)
+            //Ccell.backgroundColor = UIColor.brownColor()
+            constrain(image,label,Ccell) {
+            image,label,Ccell in
+                image.centerX == Ccell.centerX
+                image.centerY == Ccell.centerY
+                image.width == Ccell.width * 0.6
+                image.height == image.width
+                label.top == image.bottom + 10
+                label.centerX == Ccell.centerX
+            }
             return Ccell
             
         }
