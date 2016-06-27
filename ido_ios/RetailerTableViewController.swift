@@ -120,4 +120,8 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
         print("第"+String(indexPath.row)+"行")
         print("第"+String(indexPath.item)+"个")
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        <#code#>
+    }
 }
