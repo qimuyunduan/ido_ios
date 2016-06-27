@@ -55,7 +55,7 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         collectionView        = UICollectionView(frame: CGRectMake(0, 0, screenSize.width, 200),collectionViewLayout:layout)
-        collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Ccell")
+        collectionView!.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "Ccell")
         collectionView!.dataSource = self
         collectionView!.delegate   = self
         return collectionView!
@@ -84,44 +84,29 @@ class RetailerTableViewController: UITableViewController,UICollectionViewDataSou
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionCells.count
     }
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if let Ccell = (self.collectionView?.dequeueReusableCellWithReuseIdentifier("Ccell", forIndexPath: indexPath))! as UICollectionViewCell? {
-          
-            let info = collectionCells[indexPath.item]
-            let image = UIImageView(image: UIImage(named: info["pic"]!))
-            image.frame = Ccell.bounds
-            image.contentMode = .ScaleAspectFit
-            let label = UILabel()
-            label.text = info["name"]
-            label.font = UIFont.systemFontOfSize(16)
-            label.textAlignment = .Center
-            Ccell.addSubview(image)
-            Ccell.addSubview(label)
-            //Ccell.backgroundColor = UIColor.brownColor()
-            constrain(image,label,Ccell) {
-            image,label,Ccell in
-                image.centerX == Ccell.centerX
-                image.centerY == Ccell.centerY
-                image.width == Ccell.width * 0.6
-                image.height == image.width
-                label.top == image.bottom + 10
-                label.centerX == Ccell.centerX
-            }
-            return Ccell
+        let Ccell = collectionView.dequeueReusableCellWithReuseIdentifier("Ccell", forIndexPath: indexPath) as! CollectionViewCell
+        
+        let info = collectionCells[indexPath.item]
+        Ccell.imgView!.image = UIImage(named: info["pic"]!)
+        Ccell.label!.text = info["name"]
             
-        }
+        return Ccell
+            
+        
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("你选中了第" + String(indexPath.section)+"区" )
         print("第"+String(indexPath.row)+"行")
         print("第"+String(indexPath.item)+"个")
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
-    }
+    //    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    //        <#code#>
+    //    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        <#code#>
+//    }
+        
 }

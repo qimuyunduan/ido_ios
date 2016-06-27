@@ -12,31 +12,31 @@ import Cartography
 class CollectionViewCell: UICollectionViewCell {
     
     let width = UIScreen.mainScreen().bounds.size.width
-    let imgView:UIImageView?
-    let label:UILabel?
+    var imgView:UIImageView?
+    var label:UILabel?
     
     
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-        self.contentView.frame = CGRectMake(0, 0, width * 0.25, width * 0.25)
-        //初始化各种控件
         let contentView = self.contentView
-        
+        //初始化各种控件
         imgView = UIImageView()
-        self .addSubview(imgView!)
+        imgView?.contentMode = .ScaleAspectFit
+        self.addSubview(imgView!)
         label = UILabel()
         label?.numberOfLines = 1
         label?.font = UIFont.boldSystemFontOfSize(16)
         label?.textColor = UIColor.lightGrayColor()
         label?.textAlignment = NSTextAlignment.Left
-        self .addSubview(label!)
-        constrain(contentView,imgView,label) {
-        contentView,imgView,label in
+        self.addSubview(label!)
+        constrain(contentView,imgView!,label!) {
+            contentView,imgView,label in
+            imgView.center == contentView.center
             imgView.width == contentView.width * 0.6
             imgView.height == imgView.width
-            imgView.center == contentView.center
             label.top == imgView.bottom + 10
+            label.centerX == contentView.centerX
         
         }
         
