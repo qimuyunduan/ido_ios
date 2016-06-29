@@ -8,12 +8,12 @@
 
 import Foundation
 struct Activity {
-    
-    let logoUrl :String
-    let title :String
-    let intro :String
-    let id :String
-    let detail:String
-    
+
+    let company:String
+    let startDay:String
+    let endDay:String
+    let image:String
+    let type: String
+    let info:String
     
 }

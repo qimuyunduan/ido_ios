@@ -17,7 +17,7 @@ class HPTableViewController: UITableViewController {
     
     private let pageControl = UIPageControl()
     private let number  = 3
-    private var data:[Activity]?
+    private var data:[Dictionary<String,String>]?
     let screen = UIScreen.mainScreen()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,8 @@ class HPTableViewController: UITableViewController {
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    let json = JSON(value)
-                    print("JSON: \(json)")
+                    let data = JSON(value)
+                    print("JSON: \(data[0]["title"])")
                 }
             case .Failure(let error):
                 print(error)
