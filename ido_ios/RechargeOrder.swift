@@ -10,11 +10,7 @@ import Foundation
 
 struct RechargeOrder {
     
-    let moneyLeft:Int
-    let date :String
-    let type:RechargeType = .substract
-    let number:Int
-}
-enum RechargeType {
-    case plus,substract
+    let chargeDay:String
+    let chargeNum:Float
+    let moneyLeft:Float
 }

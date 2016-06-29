@@ -10,14 +10,13 @@ import Foundation
 
 struct HistoryOrder {
     
-    let image :String
-    let time:String
-    let title:String
-    let money:Int
-    let status:OrderStatus
-    let id:String
+    let orderImage:String
+    let orderTime:String
+    let orderTitle:String
+    let orderMoney:Float
+    let orderStatus:OrderStatus
     
 }
-enum OrderStatus {
+enum OrderStatus:Int {
     case canceled,completed,frozened
 }

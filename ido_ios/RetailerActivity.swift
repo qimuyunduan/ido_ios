@@ -10,10 +10,12 @@ import Foundation
 
 struct RetailerActivity {
     
-    let price:Int
-    let bargainPrice:Int
-    let intro:String
-    let count:Int
-    let id :String
+    let title:String
+    let totalCount:Float
+    let hasSale:Float
+    let truePrice:Float
+    let bargainPrice:Float
+    let startDay:String
+    let endDay:String
     
 }
