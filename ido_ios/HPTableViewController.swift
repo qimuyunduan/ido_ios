@@ -9,16 +9,34 @@
 import UIKit
 import Cartography
 import MJRefresh
+import Kingfisher
+import SwiftyJSON
+import Alamofire
 
 class HPTableViewController: UITableViewController {
     
     private let pageControl = UIPageControl()
     private let number  = 3
+    private var data:[Activity]?
     let screen = UIScreen.mainScreen()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addHeaderView(self.tableView)
+        let url = HOST + "latestActivities"
+        
+        Alamofire.request(.GET, url).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         
     }
     

@@ -13,5 +13,7 @@ struct Activity {
     let title :String
     let intro :String
     let id :String
+    let detail:String
+    
     
 }

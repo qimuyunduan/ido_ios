@@ -8,4 +8,5 @@
 
 import Foundation
 
-let HOST = "http://localhost"
+let HOST = "http://localhost:8080/"
+
