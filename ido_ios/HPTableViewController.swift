@@ -17,8 +17,9 @@ class HPTableViewController: UITableViewController {
     
     private let pageControl = UIPageControl()
     private let number  = 3
-    private var data:[Dictionary<String,String>]?
+    private var data = []
     let screen = UIScreen.mainScreen()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addHeaderView(self.tableView)
@@ -28,16 +29,15 @@ class HPTableViewController: UITableViewController {
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    let data = JSON(value)
-                    print("JSON: \(data[0]["title"])")
+                   self.data = value as! NSArray
+                    print(self.data.count)
                 }
             case .Failure(let error):
                 print(error)
             }
         }
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        
+        self.tableView.registerClass(HPTableViewCell.self, forCellReuseIdentifier: "homePageCell")
+
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -121,16 +121,22 @@ class HPTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       
-            let headerCell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
-            headerCell.textLabel?.text = "最新活动"
-            headerCell.textLabel?.font = UIFont.boldSystemFontOfSize(18)
-            headerCell.textLabel?.textColor = UIColor.redColor()
-            headerCell.textLabel?.textAlignment = NSTextAlignment.Left
-            headerCell.imageView?.image = UIImage(named: "new")
-            headerCell.imageView?.frame = CGRectMake(0, 0, 20, 20)
-            return headerCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("homePageCell") as! HPTableViewCell
+            cell.HPCellImage.kf_setImageWithURL(NSURL(string: HOST + "img/chineseDoctor.png")!, placeholderImage: UIImage(named: "mrt"))
+            cell.HPCellLabel.text = "swfiwf"
+            cell.HPCellTextview.text = "爱不如天"
+            return cell
         
     }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        <#code#>
+//    }
+//    func getMoreData() -> Void {
+//        <#function body#>
+//    }
+//    func refresh() -> Void {
+//        <#function body#>
+//    }
     
 }
 
