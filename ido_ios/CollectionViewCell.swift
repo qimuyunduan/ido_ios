@@ -35,7 +35,8 @@ class CollectionViewCell: UICollectionViewCell {
             imgView.center == contentView.center
             imgView.width == contentView.width * 0.6
             imgView.height == imgView.width
-            label.top == imgView.bottom + 10
+            imgView.bottom == label.top - 10
+            label.bottom == contentView.bottom - 5
             label.centerX == contentView.centerX
         
         }

@@ -17,7 +17,7 @@ class HPTableViewController: UITableViewController {
     
     private let pageControl = UIPageControl()
     private let number  = 3
-    private var data = []
+    private var data:[AnyObject] = [AnyObject]()
     let screen = UIScreen.mainScreen()
     
     override func viewDidLoad() {
@@ -29,14 +29,13 @@ class HPTableViewController: UITableViewController {
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                   self.data = value as! NSArray
-                    print(self.data.count)
+                   self.data = value as! NSArray as [AnyObject]
+                self.tableView.reloadData()
                 }
             case .Failure(let error):
                 print(error)
             }
         }
-        self.tableView.registerClass(HPTableViewCell.self, forCellReuseIdentifier: "homePageCell")
 
     }
     
@@ -122,11 +121,17 @@ class HPTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       
             let cell = tableView.dequeueReusableCellWithIdentifier("homePageCell") as! HPTableViewCell
-            cell.HPCellImage.kf_setImageWithURL(NSURL(string: HOST + "img/chineseDoctor.png")!, placeholderImage: UIImage(named: "mrt"))
-            cell.HPCellLabel.text = "swfiwf"
-            cell.HPCellTextview.text = "爱不如天"
+            let rowData = data[indexPath.row] as! Dictionary<String,String>
+            print(rowData)
+            cell.HPCellImage.kf_setImageWithURL(NSURL(string: HOST + "images/chineseDoctor.png")!, placeholderImage: UIImage(named: "mrt"))
+            cell.HPCellLabel.text = rowData["title"]
+            cell.HPCellTextview.text = rowData["info"]
             return cell
         
+    }
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(data.count)
+        return data.count
     }
 //    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        <#code#>
