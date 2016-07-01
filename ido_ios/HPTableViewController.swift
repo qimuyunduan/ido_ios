@@ -197,7 +197,7 @@ class HPTableViewController: UITableViewController {
         }
         
     }
-    func getDataFromServer() {
+    func getDataFromServer() ->Void {
     
         let url = HOST + "latestActivities"
         Alamofire.request(.GET, url).validate().responseJSON { response in
