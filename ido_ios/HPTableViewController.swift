@@ -17,28 +17,29 @@ class HPTableViewController: UITableViewController {
     
     private let pageControl = UIPageControl()
     private let number  = 3
-    private var data:[AnyObject] = [AnyObject]()
+    private var refreshHeader:MJRefreshGifHeader?
+    private var refreshFooter:MJRefreshBackNormalFooter?
+    private var data:[AnyObject] = [AnyObject](){
+    
+        didSet {
+        
+            self.tableView.reloadData()
+        
+        }
+    
+    }
     let screen = UIScreen.mainScreen()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addHeaderView(self.tableView)
-        let url = HOST + "latestActivities"
-        
-        Alamofire.request(.GET, url).validate().responseJSON { response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                   self.data = value as! NSArray as [AnyObject]
-                self.tableView.reloadData()
-                }
-            case .Failure(let error):
-                print(error)
-            }
-        }
+        setRefreshViews()
 
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        headerRefresh()
+    }
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         // 随着滑动改变pageControl的状态
@@ -130,18 +131,49 @@ class HPTableViewController: UITableViewController {
         
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(data.count)
-        return data.count
+           return data.count
     }
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        <#code#>
-//    }
-//    func getMoreData() -> Void {
-//        <#function body#>
-//    }
-//    func refresh() -> Void {
-//        <#function body#>
-//    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("你选中某某单元格")
+    }
+    
+    func setRefreshViews() -> Void {
+        
+        refreshHeader = MJRefreshGifHeader(refreshingTarget: self, refreshingAction: #selector(HPTableViewController.headerRefresh))
+        refreshHeader!.setTitle("下拉刷新", forState: MJRefreshState.Idle)
+        refreshHeader!.setTitle("正在刷新", forState: MJRefreshState.Refreshing)
+        refreshHeader!.setTitle("松开即可刷新", forState: MJRefreshState.Pulling)
+        //refreshHeader.setImages(<#T##images: [AnyObject]!##[AnyObject]!#>, forState: <#T##MJRefreshState#>)
+//        refreshHeader!.stateLabel.text = "最后更新"
+//        refreshHeader!.lastUpdatedTimeLabel.hidden = true
+        self.tableView.mj_header = refreshHeader
+        refreshFooter = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(HPTableViewController.footerRefresh))
+        refreshFooter!.setTitle("下拉刷新", forState: MJRefreshState.Idle)
+        refreshFooter!.setTitle("正在刷新", forState: MJRefreshState.Refreshing)
+        refreshFooter!.setTitle("松开即可刷新", forState: MJRefreshState.Pulling)
+        self.tableView.mj_footer = refreshFooter
+
+    }
+    
+    
+    func footerRefresh() -> Void {
+        print("向下刷新")
+        refreshFooter?.endRefreshing()
+    }
+    func headerRefresh() -> Void {
+        let url = HOST + "latestActivities"
+        Alamofire.request(.GET, url).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    self.data = value as! [AnyObject]
+                    self.refreshHeader?.endRefreshing()
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+    }
     
 }
 
