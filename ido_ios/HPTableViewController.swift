@@ -17,6 +17,8 @@ class HPTableViewController: UITableViewController {
     
     private let pageControl = UIPageControl()
     private let number  = 3
+    private var time = 3
+    private var timer:NSTimer? = nil
     private var refreshHeader:MJRefreshGifHeader?
     private var refreshFooter:MJRefreshBackNormalFooter?
     private var data:[AnyObject] = [AnyObject](){
@@ -38,7 +40,7 @@ class HPTableViewController: UITableViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        headerRefresh()
+        getDataFromServer()
     }
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
@@ -139,15 +141,32 @@ class HPTableViewController: UITableViewController {
     
     func setRefreshViews() -> Void {
         
-        refreshHeader = MJRefreshGifHeader(refreshingTarget: self, refreshingAction: #selector(HPTableViewController.headerRefresh))
+        refreshHeader = MJRefreshGifHeader(refreshingTarget: self, refreshingAction: #selector(HPTableViewController.refresh))
         refreshHeader!.setTitle("下拉刷新", forState: MJRefreshState.Idle)
         refreshHeader!.setTitle("正在刷新", forState: MJRefreshState.Refreshing)
         refreshHeader!.setTitle("松开即可刷新", forState: MJRefreshState.Pulling)
-        //refreshHeader.setImages(<#T##images: [AnyObject]!##[AnyObject]!#>, forState: <#T##MJRefreshState#>)
-//        refreshHeader!.stateLabel.text = "最后更新"
-//        refreshHeader!.lastUpdatedTimeLabel.hidden = true
+        let idleImages = NSMutableArray()
+        let idImage = UIImage(named: "wnx00")
+        idleImages.addObject(idImage!)
+        refreshHeader!.setImages(idleImages as [AnyObject], forState: MJRefreshState.Idle)
+        
+        let refreshingImages = NSMutableArray()
+        let refreshingImage = UIImage(named: "wnx00")!
+        refreshingImages.addObject(refreshingImage)
+        refreshHeader!.setImages(refreshingImages as [AnyObject], forState: MJRefreshState.Pulling)
+        
+        let refreshingStartImages = NSMutableArray()
+        for i in 0...92 {
+            let image = UIImage(named: String(format: "wnx%02d", i))
+            refreshingStartImages.addObject(image!)
+        }
+        
+        refreshHeader!.setImages(refreshingStartImages as [AnyObject], forState: MJRefreshState.Refreshing)
+        
+        // refreshHeader!.stateLabel.hidden = true
+       // refreshHeader!.lastUpdatedTimeLabel.hidden = true
         self.tableView.mj_header = refreshHeader
-        refreshFooter = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(HPTableViewController.footerRefresh))
+        refreshFooter = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(HPTableViewController.refresh))
         refreshFooter!.setTitle("下拉刷新", forState: MJRefreshState.Idle)
         refreshFooter!.setTitle("正在刷新", forState: MJRefreshState.Refreshing)
         refreshFooter!.setTitle("松开即可刷新", forState: MJRefreshState.Pulling)
@@ -155,26 +174,45 @@ class HPTableViewController: UITableViewController {
 
     }
     
-    
-    func footerRefresh() -> Void {
-        print("向下刷新")
-        refreshFooter?.endRefreshing()
+
+    func refresh() -> Void {
+      timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HPTableViewController.timerAction), userInfo: nil, repeats: true)
     }
-    func headerRefresh() -> Void {
+    
+    func timerAction() -> Void {
+        time -= 1
+        if time == 0 {
+            getDataFromServer()
+            if let mytimer = timer {
+                mytimer.invalidate()
+            }
+            if (refreshHeader!.isRefreshing() == true) {
+            
+                refreshHeader!.endRefreshing()
+            }else{
+            
+                refreshFooter!.endRefreshing()
+            }
+            time = 3
+        }
+        
+    }
+    func getDataFromServer() {
+    
         let url = HOST + "latestActivities"
         Alamofire.request(.GET, url).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
                     self.data = value as! [AnyObject]
-                    self.refreshHeader?.endRefreshing()
+                
                 }
             case .Failure(let error):
                 print(error)
+                
             }
         }
     }
-    
 }
 
 
