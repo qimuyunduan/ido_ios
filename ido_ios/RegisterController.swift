@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var registerPhone: UITextField!
     
@@ -27,18 +27,51 @@ class RegisterController: UIViewController {
         //显示数字键盘
         registerPhone.keyboardType = UIKeyboardType.NumberPad
         verifyCode.keyboardType = UIKeyboardType.NumberPad
-        sendMsgButton.userInteractionEnabled = false
         verifyCode.userInteractionEnabled = false
+        verifyCode.delegate = self
         nextStep.userInteractionEnabled = false
+        sendMsgButton.addTarget(self, action: #selector(RegisterController.sendMsg), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+  
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+    
+        nextStep.userInteractionEnabled = true
+            
+        nextStep.setBackgroundImage(UIImage(named: "nextStepEnabled"), forState: UIControlState.Normal)
+        
         
     }
     
-    
-    
     func sendMsg() -> Void {
-        verifyCode.userInteractionEnabled = true
+        if checkPhoneNumber(registerPhone.text!) == true {
+            verifyCode.userInteractionEnabled = true
+            SMSSDK.getVerificationCodeByMethod(SMSGetCodeMethodSMS, phoneNumber: registerPhone.text, zone: "86", customIdentifier: nil, result: nil)
+        }
+       
     }
     
+    @IBAction func nextStep(sender: AnyObject) {
+        
+        verifyCode.resignFirstResponder()
+        if verifyCode.text?.characters.count == 4 {
+            
+            let setPassController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("setPwdController") as! SetPwdController
+          
+            SMSSDK.commitVerificationCode(verifyCode.text, phoneNumber: registerPhone.text, zone: "86", result: {
+                
+                NSError in
+                if (NSError == nil) {
+                    print("验证通过")
+                    setPassController.personName = self.registerPhone.text
+                    self.navigationController?.pushViewController(setPassController, animated: true)
+                }
+            })
+
+        }
+        
+        
+    }
     func checkPhoneNumber(phoneNumber:String) -> Bool {
         //正则表达式是否符合电话号码格式
         let mobile = "^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$"
@@ -55,8 +88,7 @@ class RegisterController: UIViewController {
             || (regextestcu.evaluateWithObject(phoneNumber) == true))
         {   //收回键盘
             registerPhone.resignFirstResponder()
-            sendMsgButton.userInteractionEnabled = true
-            sendMsgButton.addTarget(self, action: #selector(RegisterController.sendMsg), forControlEvents: UIControlEvents.TouchUpInside)
+        
             return true
         }
         else
@@ -64,4 +96,8 @@ class RegisterController: UIViewController {
             return false
         }
     }
+    
+    
+    
+    
 }

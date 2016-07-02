@@ -10,10 +10,24 @@ import UIKit
 
 class MyTableViewController: UITableViewController {
     
+    
+    var personalInfo = ["name":"","insureCompany":"","moneyLeft":""]
+    
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var insureCompany: UILabel!
+    
+    @IBOutlet weak var moneyLeft: UILabel!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         //修改导航栏返回按钮
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+        
+        self.name.text = personalInfo["name"]
+        self.insureCompany.text = personalInfo["insureCompany"]
+        self.moneyLeft.text = personalInfo["moneyLeft"]
        
         }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

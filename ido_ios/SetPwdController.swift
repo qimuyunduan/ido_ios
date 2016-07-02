@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class SetPwdController: UIViewController {
+class SetPwdController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var setPwd: UITextField!
     
@@ -15,8 +15,26 @@ class SetPwdController: UIViewController {
     
     @IBOutlet weak var confirmButton: UIButton!
     
+    var personName :String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        confirmPwd.delegate = self
+        confirmButton.addTarget(self, action: #selector(SetPwdController.login), forControlEvents: UIControlEvents.TouchUpInside)
     }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        confirmButton.setBackgroundImage(UIImage(named: "loginEnabled"), forState: UIControlState.Normal)
+    }
+    func login() -> Void {
+        
+        if setPwd.text == confirmPwd.text && setPwd.text?.characters.count >= 6 {
+            
+            let destinationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("myTableViewController") as! MyTableViewController
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setBool(true, forKey: "registered")
+            self.presentViewController(destinationController, animated: false, completion: nil)
+
+        }
+    }
+    
 }

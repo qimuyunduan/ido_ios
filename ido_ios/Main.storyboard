@@ -778,7 +778,7 @@
         <!--我的-->
         <scene sceneID="QcO-OT-EGY">
             <objects>
-                <tableViewController id="wPv-t0-cHw" customClass="MyTableViewController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="myTableViewController" id="wPv-t0-cHw" customClass="MyTableViewController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ubM-OJ-iPE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1098,6 +1098,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="我的" id="5Rt-fn-tKb"/>
                     <connections>
+                        <outlet property="insureCompany" destination="EXQ-oR-98U" id="Uy5-pR-Fnw"/>
+                        <outlet property="moneyLeft" destination="BVL-rg-ddh" id="Ghr-CP-IMZ"/>
+                        <outlet property="name" destination="4DW-j3-VJ7" id="CpW-DR-BeB"/>
                         <outlet property="tableView" destination="ubM-OJ-iPE" id="41a-8M-jbu"/>
                     </connections>
                 </tableViewController>
@@ -1240,7 +1243,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="OPN-bI-a0U" kind="push" id="ZbA-lV-bUg"/>
+                                    <action selector="nextStep:" destination="rfd-1F-cbU" eventType="touchUpInside" id="NM7-Zb-cW4"/>
+                                    <action selector="setInitPass:" destination="rfd-1F-cbU" eventType="touchUpInside" id="2Jg-OU-HII"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-YI-Qpy">
@@ -1888,7 +1892,7 @@
         <!--Set Pwd Controller-->
         <scene sceneID="cld-Z5-OU0">
             <objects>
-                <viewController id="7TU-7P-xcS" customClass="SetPwdController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setPwdController" id="7TU-7P-xcS" customClass="SetPwdController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Di-uA-FXZ"/>
                         <viewControllerLayoutGuide type="bottom" id="YGx-2h-dKx"/>
