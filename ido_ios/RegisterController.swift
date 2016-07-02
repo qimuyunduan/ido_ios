@@ -56,23 +56,23 @@ class RegisterController: UIViewController,UITextFieldDelegate {
         verifyCode.resignFirstResponder()
         if verifyCode.text?.characters.count == 4 {
             
-            let setPassController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("setPwdController") as! SetPwdController
+             let setPassController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("setPwdController") as! SetPwdController
           
             SMSSDK.commitVerificationCode(verifyCode.text, phoneNumber: registerPhone.text, zone: "86", result: {
                 
-                NSError in
-                if (NSError == nil) {
-                    print("验证通过")
-                    setPassController.personName = self.registerPhone.text
-                    self.navigationController?.pushViewController(setPassController, animated: true)
-                }
+              
+                setPassController.personName = self.registerPhone.text
+                self.navigationController?.pushViewController(setPassController, animated: true)
+                
             })
-
+           
         }
         
         
     }
+    
     func checkPhoneNumber(phoneNumber:String) -> Bool {
+        
         //正则表达式是否符合电话号码格式
         let mobile = "^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$"
         let  CM = "^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$"

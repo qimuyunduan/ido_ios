@@ -32,6 +32,7 @@ class SetPwdController: UIViewController,UITextFieldDelegate {
             let destinationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("myTableViewController") as! MyTableViewController
             let userDefaults = NSUserDefaults.standardUserDefaults()
             userDefaults.setBool(true, forKey: "registered")
+            userDefaults.setObject(personName, forKey: "userName")
             self.presentViewController(destinationController, animated: false, completion: nil)
 
         }

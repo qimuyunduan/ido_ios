@@ -24,11 +24,14 @@ class MyTableViewController: UITableViewController {
         super.viewDidLoad()
         //修改导航栏返回按钮
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
-        
-        self.name.text = personalInfo["name"]
-        self.insureCompany.text = personalInfo["insureCompany"]
-        self.moneyLeft.text = personalInfo["moneyLeft"]
-       
+        if personalInfo["name"] != "" {
+            let startIndex = personalInfo["name"]?.startIndex.advancedBy(2)
+            let endIndex = personalInfo["name"]?.endIndex.advancedBy(-4)
+            personalInfo["name"] = (personalInfo["name"]?.substringToIndex(startIndex!))! + "****" + (personalInfo["name"]?.substringFromIndex(endIndex!))!
+            self.name.text = personalInfo["name"]
+            self.insureCompany.text = personalInfo["insureCompany"]
+            self.moneyLeft.text = personalInfo["moneyLeft"]
+        }
         }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
