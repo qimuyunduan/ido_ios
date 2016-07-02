@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class RegisterController: UIViewController {
     
     @IBOutlet weak var registerPhone: UITextField!
@@ -23,6 +24,44 @@ class RegisterController: UIViewController {
         sendMsgButton.layer.borderWidth = 1.0
         sendMsgButton.layer.borderColor = UIColor(red: 0.46, green: 0.66, blue: 1, alpha: 1).CGColor
         sendMsgButton.layer.cornerRadius = 5.0
+        //显示数字键盘
+        registerPhone.keyboardType = UIKeyboardType.NumberPad
+        verifyCode.keyboardType = UIKeyboardType.NumberPad
+        sendMsgButton.userInteractionEnabled = false
+        verifyCode.userInteractionEnabled = false
+        nextStep.userInteractionEnabled = false
         
+    }
+    
+    
+    
+    func sendMsg() -> Void {
+        verifyCode.userInteractionEnabled = true
+    }
+    
+    func checkPhoneNumber(phoneNumber:String) -> Bool {
+        //正则表达式是否符合电话号码格式
+        let mobile = "^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$"
+        let  CM = "^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$"
+        let  CU = "^1(3[0-2]|5[256]|8[56])\\d{8}$"
+        let  CT = "^1((33|53|8[09])[0-9]|349)\\d{7}$"
+        let regextestmobile = NSPredicate(format: "SELF MATCHES %@",mobile)
+        let regextestcm = NSPredicate(format: "SELF MATCHES %@",CM )
+        let regextestcu = NSPredicate(format: "SELF MATCHES %@" ,CU)
+        let regextestct = NSPredicate(format: "SELF MATCHES %@" ,CT)
+        if ((regextestmobile.evaluateWithObject(phoneNumber) == true)
+            || (regextestcm.evaluateWithObject(phoneNumber)  == true)
+            || (regextestct.evaluateWithObject(phoneNumber) == true)
+            || (regextestcu.evaluateWithObject(phoneNumber) == true))
+        {   //收回键盘
+            registerPhone.resignFirstResponder()
+            sendMsgButton.userInteractionEnabled = true
+            sendMsgButton.addTarget(self, action: #selector(RegisterController.sendMsg), forControlEvents: UIControlEvents.TouchUpInside)
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
 }

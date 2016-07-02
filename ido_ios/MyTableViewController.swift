@@ -20,4 +20,22 @@ class MyTableViewController: UITableViewController {
         
         return 0.5
     }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.section == 0) && (indexPath.row == 0) {
+            
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let destinationController:UIViewController?
+            
+            if ((userDefaults.stringForKey("registered")) != nil){
+                destinationController = mainStoryBoard.instantiateViewControllerWithIdentifier("loginController") as! LoginController
+            }else{
+           
+                destinationController = mainStoryBoard.instantiateViewControllerWithIdentifier("registerController") as! RegisterController
+            }
+            self.presentViewController(destinationController!, animated: true, completion: nil)
+        }
+    }
 }
