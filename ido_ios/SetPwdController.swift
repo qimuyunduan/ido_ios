@@ -34,19 +34,40 @@ class SetPwdController: UIViewController,UITextFieldDelegate {
         if setPwd.text == confirmPwd.text && setPwd.text?.characters.count >= 6 {
             
             let destinationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("myTableViewController") as! MyTableViewController
-            if newUser()["result"] == "200" {
-                let userDefaults = NSUserDefaults.standardUserDefaults()
-                userDefaults.setBool(true, forKey: "registered")
-                userDefaults.setObject(personName, forKey: "userName")
-                destinationController.personalInfo["name"] = personName
-                destinationController.personalInfo["insureCompany"] = "ido cor"
-                destinationController.personalInfo["moneyLeft"] = "0"
-                self.presentViewController(destinationController, animated: false, completion: nil)
-            }
+            newUser()
+//            if newUser()["result"] == "200" {
+//                let userDefaults = NSUserDefaults.standardUserDefaults()
+//                userDefaults.setBool(true, forKey: "registered")
+//                userDefaults.setObject(personName, forKey: "userName")
+//                destinationController.personalInfo["name"] = personName
+//                destinationController.personalInfo["insureCompany"] = "ido cor"
+//                destinationController.personalInfo["moneyLeft"] = "0"
+//                self.presentViewController(destinationController, animated: false, completion: nil)
+//            }
         }
     }
-    func newUser() -> Dictionary<String,AnyObject> {
+    func newUser() -> Void {
         
+        let paras = ["userName":personName!,"password":String(setPwd.text),"salt":String(setPwd.text),"phone":personName!]
+        
+        Alamofire.request(.POST, HOST+"user",parameters:paras).responseJSON{
+        
+            response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    print(json)
+                   
+                }
+                
+            case .Failure(let error):
+                print(error)
+                
+            }
+        
+        }
+    
     }
     
 }

@@ -1116,10 +1116,10 @@
             </objects>
             <point key="canvasLocation" x="546" y="183"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Pwd Controller-->
         <scene sceneID="fCc-97-Sfe">
             <objects>
-                <viewController id="OPN-bI-a0U" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetPwdController" id="OPN-bI-a0U" customClass="SetPwdController" customModule="ido_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qqO-bh-NCi"/>
                         <viewControllerLayoutGuide type="bottom" id="Mz4-nI-6Im"/>
@@ -1245,6 +1245,7 @@
                                 <connections>
                                     <action selector="nextStep:" destination="rfd-1F-cbU" eventType="touchUpInside" id="NM7-Zb-cW4"/>
                                     <action selector="setInitPass:" destination="rfd-1F-cbU" eventType="touchUpInside" id="2Jg-OU-HII"/>
+                                    <segue destination="OPN-bI-a0U" kind="push" identifier="setPwd" id="cxP-EY-fkH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-YI-Qpy">
