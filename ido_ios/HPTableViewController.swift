@@ -125,7 +125,6 @@ class HPTableViewController: UITableViewController {
       
             let cell = tableView.dequeueReusableCellWithIdentifier("homePageCell") as! HPTableViewCell
             let rowData = data[indexPath.row] as! Dictionary<String,String>
-            print(rowData)
             cell.HPCellImage.kf_setImageWithURL(NSURL(string: HOST + "images/chineseDoctor.png")!, placeholderImage: UIImage(named: "mrt"))
             cell.HPCellLabel.text = rowData["title"]
             cell.HPCellTextview.text = rowData["info"]

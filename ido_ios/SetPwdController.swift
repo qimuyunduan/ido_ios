@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 class SetPwdController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var setPwd: UITextField!
@@ -16,6 +19,7 @@ class SetPwdController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var confirmButton: UIButton!
     
     var personName :String?
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,9 @@ class SetPwdController: UIViewController,UITextFieldDelegate {
             self.presentViewController(destinationController, animated: false, completion: nil)
 
         }
+    }
+    func newUser() -> Bool {
+        <#function body#>
     }
     
 }

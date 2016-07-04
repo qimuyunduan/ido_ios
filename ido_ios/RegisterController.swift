@@ -44,6 +44,7 @@ class RegisterController: UIViewController,UITextFieldDelegate {
     }
     
     func sendMsg() -> Void {
+        
         if checkPhoneNumber(registerPhone.text!) == true {
             verifyCode.userInteractionEnabled = true
             SMSSDK.getVerificationCodeByMethod(SMSGetCodeMethodSMS, phoneNumber: registerPhone.text, zone: "86", customIdentifier: nil, result: nil)
@@ -57,18 +58,11 @@ class RegisterController: UIViewController,UITextFieldDelegate {
         if verifyCode.text?.characters.count == 4 {
             
              let setPassController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("setPwdController") as! SetPwdController
-          
-            SMSSDK.commitVerificationCode(verifyCode.text, phoneNumber: registerPhone.text, zone: "86", result: {
-                
-              
-                setPassController.personName = self.registerPhone.text
-                self.navigationController?.pushViewController(setPassController, animated: true)
-                
-            })
-           
+         // setPassController.personName = self.registerPhone.text
+            
+            SMSSDK.commitVerificationCode(verifyCode.text, phoneNumber: registerPhone.text, zone: "86", result:nil )
+        
         }
-        
-        
     }
     
     func checkPhoneNumber(phoneNumber:String) -> Bool {

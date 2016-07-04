@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class LoginController: UIViewController,UITextFieldDelegate {
     
@@ -41,9 +42,28 @@ class LoginController: UIViewController,UITextFieldDelegate {
         loginButton.addTarget(self, action: #selector(LoginController.login), forControlEvents: UIControlEvents.TouchUpInside)
     }
     func textFieldDidBeginEditing(textField: UITextField) {
-        loginButton.setBackgroundImage(UIImage(named: ""), forState: .Normal)
+        loginButton.setBackgroundImage(UIImage(named: "loginEnabled"), forState: .Normal)
     }
     func login() -> Void {
-        
+        if userName.text != "" && pwd.text?.characters.count >= 6 {
+            
+            let parameters = ["userName":String(userName.text),"userPass":String(pwd.text)]
+
+            Alamofire.request(.POST, HOST+"login", parameters: parameters).responseJSON{
+            
+                response in
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        print(json)
+                    }
+                    
+                case .Failure(let error):
+                    print(error)
+                
+                }
+            }
+        }
     }
 }
