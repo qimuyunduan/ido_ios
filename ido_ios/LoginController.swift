@@ -45,12 +45,24 @@ class LoginController: UIViewController,UITextFieldDelegate {
         loginButton.setBackgroundImage(UIImage(named: "loginEnabled"), forState: .Normal)
     }
     func login() -> Void {
+        if validateUser() {
+            let destinationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("myTableViewController") as! MyTableViewController
+            destinationController.personalInfo["name"] = userName.text
+            destinationController.personalInfo["insureCompany"] = "ido cor"
+            destinationController.personalInfo["moneyLeft"] = "0"
+            self.presentViewController(destinationController, animated: false, completion: nil)
+
+        }
+    }
+    
+    
+    func validateUser() -> Bool {
         if userName.text != "" && pwd.text?.characters.count >= 6 {
             
             let parameters = ["userName":String(userName.text),"userPass":String(pwd.text)]
-
-            Alamofire.request(.POST, HOST+"login", parameters: parameters).responseJSON{
             
+            Alamofire.request(.POST, HOST+"login", parameters: parameters).responseJSON{
+                
                 response in
                 switch response.result {
                 case .Success:
@@ -61,7 +73,7 @@ class LoginController: UIViewController,UITextFieldDelegate {
                     
                 case .Failure(let error):
                     print(error)
-                
+                    
                 }
             }
         }
